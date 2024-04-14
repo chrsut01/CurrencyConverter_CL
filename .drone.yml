@@ -13,3 +13,17 @@ steps:
     image: mcr.microsoft.com/dotnet/sdk:8.0
     commands:
     - dotnet test
+  
+ 
+    - name: code-analysis
+      image: boulundeasv/dotnet-sdk-with-java
+      environment:
+        SONARSECRET:
+          from_secret: SonarQubeSecret
+      commands:
+        - exit 0
+        - dotnet sonarscanner begin /k:"easv-devops_CurrencyConverter_CL_AY7c0H5CEVvRW2O60ErN" /d:sonar.host.url="http://sonar.setgo.dk:9000"  /d:sonar.token="sqp_2d252789aba243b51322fb52845c8f26d962fdc9"
+        - dotnet build --no-incremental
+        - dotnet-coverage collect "dotnet test" -f xml -o "coverage.xml"
+        - dotnet sonarscanner end /d:sonar.token="sqp_2d252789aba243b51322fb52845c8f26d962fdc9"
+
