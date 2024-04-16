@@ -13,6 +13,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Set Git Config
+        run: |
+          git config user.email "chrissu360@gmail.com"
+          git config user.name "chrsut01"
+         
       - name: Configure SSH Key
         run: |
           mkdir -p ~/.ssh
