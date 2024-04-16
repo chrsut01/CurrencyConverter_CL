@@ -41,7 +41,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }} # This token is a personal access token with repo scope
         run: |
-          git push origin master
+          git push school-repo HEAD:master 
 
       - name: Setup Node
         uses: actions/setup-node@v3
