@@ -38,12 +38,5 @@ jobs:
         run: git commit -m "Sync changes from school repository"
 
       - name: Push Changes
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }} # This token is a personal access token with repo scope
         run: |
-          git push school-repo HEAD:master 
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
+          git push school-repo HEAD:master
