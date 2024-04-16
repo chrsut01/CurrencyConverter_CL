@@ -3,7 +3,7 @@ name: Sync with School Repository
 on:
   push:
     branches:
-      - master  
+      - master
 
 jobs:
   sync:
@@ -13,11 +13,17 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Sync Changes
-        run: |
-          git remote add school-repo <git@github.com:easv-devops/CurrencyConverter_CL.git>
-          git fetch school-repo
-          git checkout master  # Adjust the branch name if necessary
-          git merge school-repo/master --no-commit --no-ff
-          git commit -m "Sync changes from school repository"
-          git push origin master  
+      - name: Add School Repository Remote
+        run: git remote add school-repo git@github.com:easv-devops/CurrencyConverter_CL.git
+
+      - name: Fetch School Repository
+        run: git fetch school-repo
+
+      - name: Merge Changes
+        run: git merge school-repo/master --no-commit --no-ff
+
+      - name: Commit Changes
+        run: git commit -m "Sync changes from school repository"
+
+      - name: Push Changes
+        run: git push origin master
