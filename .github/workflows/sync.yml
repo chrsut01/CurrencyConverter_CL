@@ -39,7 +39,7 @@ jobs:
 
       - name: Push Changes
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }} # This token is a personal access token with repo scope
         run: |
           git push origin master
 
