@@ -13,11 +13,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set Git Config
+      - name: Configure Git
         run: |
-          git config user.email "chrissu360@gmail.com"
-          git config user.name "chrsut01" 
-         
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+
       - name: Configure SSH Key
         run: |
           mkdir -p ~/.ssh
@@ -38,4 +38,7 @@ jobs:
         run: git commit -m "Sync changes from school repository"
 
       - name: Push Changes
-        run: git push origin master
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git push origin master
