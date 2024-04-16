@@ -22,6 +22,6 @@ steps:
         from_secret: SonarQubeSecret
     commands:
       - dotnet sonarscanner begin /k:"easv-devops_CurrencyConverter_CL_AY7c0H5CEVvRW2O60ErN" /d:sonar.host.url="http://sonar.setgo.dk:9000"  /d:sonar.token="sqp_2d252789aba243b51322fb52845c8f26d962fdc9"
-      - dotnet build 
+      - dotnet build --non-incremental
       - dotnet sonarscanner end /d:sonar.token="sqp_2d252789aba243b51322fb52845c8f26d962fdc9"
 
