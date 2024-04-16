@@ -35,13 +35,15 @@ jobs:
         run: git merge school-repo/master --no-commit --no-ff --allow-unrelated-histories
 
       - name: Commit Changes
-        run: |
-          git add .
-          git commit -m "Sync changes from school repository"
-
-      - name: Pull Remote Changes
-        run: git pull school-repo master
+        run: git commit -m "Sync changes from school repository"
 
       - name: Push Changes
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }} # This token is a personal access token with repo scope
         run: |
-          git push school-repo HEAD:master
+          git push origin master
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
