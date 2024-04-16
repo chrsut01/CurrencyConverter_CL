@@ -39,6 +39,11 @@ jobs:
 
       - name: Push Changes
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}  
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git push origin master
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
