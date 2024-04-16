@@ -39,7 +39,7 @@ jobs:
 
       - name: Push Changes
         env:
-          CL_PAT: ${{ secrets.CL_PAT }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git push origin master
 
