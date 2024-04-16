@@ -15,8 +15,8 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config user.email "actions@github.com"
-          git config user.name "GitHub Actions"
+          git config user.email "chrissu360@gmail.com"
+          git config user.name "chrsut01"
 
       - name: Configure SSH Key
         run: |
