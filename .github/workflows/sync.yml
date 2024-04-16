@@ -27,7 +27,7 @@ jobs:
         run: git fetch school-repo
 
       - name: Merge Changes
-        run: git merge school-repo/master --no-commit --no-ff
+        run: git merge school-repo/master --no-commit --no-ff --allow-unrelated-histories
 
       - name: Commit Changes
         run: git commit -m "Sync changes from school repository"
