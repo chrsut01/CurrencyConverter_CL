@@ -37,6 +37,9 @@ jobs:
       - name: Commit Changes
         run: git commit -m "Sync changes from school repository"
 
+      - name: Pull Remote Changes
+        run: git pull school-repo master
+
       - name: Push Changes
         run: |
           git push school-repo HEAD:master
