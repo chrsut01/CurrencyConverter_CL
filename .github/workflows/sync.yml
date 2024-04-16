@@ -39,6 +39,6 @@ jobs:
 
       - name: Push Changes
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}  # GitHub Personal Access Token
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}  
         run: |
           git push origin master
