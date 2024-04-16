@@ -1,0 +1,23 @@
+name: Sync with School Repository
+
+on:
+  push:
+    branches:
+      - master  
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Sync Changes
+        run: |
+          git remote add school-repo <git@github.com:easv-devops/CurrencyConverter_CL.git>
+          git fetch school-repo
+          git checkout master  # Adjust the branch name if necessary
+          git merge school-repo/master --no-commit --no-ff
+          git commit -m "Sync changes from school repository"
+          git push origin master  
